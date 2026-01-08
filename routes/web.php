@@ -25,7 +25,15 @@ require __DIR__.'/auth.php';
 // });
 
 
-Route::get('/home', [PageController::class, 'home']);
+Route::get('/', [PageController::class, 'home']);
 Route::get('/resume', [PageController::class, 'resume']);
 Route::get('/project', [PageController::class, 'projects']);
 Route::get('/contact', [PageController::class, 'contact']);
+
+
+
+
+
+Route::get('/test', function (){
+    return view ('backend.layout.app');
+});
