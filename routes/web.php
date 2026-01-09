@@ -35,5 +35,5 @@ Route::get('/contact', [PageController::class, 'contact']);
 
 
 Route::get('/test', function (){
-    return view ('backend.layout.app');
+    return view ('backend.pages.dashboard');
 });
