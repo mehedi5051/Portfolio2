@@ -2,7 +2,7 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Core</div>
-                        <a class="nav-link" href="/test">
+                        <a class="nav-link" href="/dashboard">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
@@ -14,14 +14,14 @@
                             Home Page
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <div class="collapse " id="collapseLayouts"
+                         <div class="collapse {{ Route:: is ('home')  }} ? 'active': ''  " id="collapseLayouts"
                             aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link "
-                                    href="hero-property.html">Hero Property</a>
-                                <a class="nav-link "
+                                <a class="nav-link {{ Route:: is ('home/property') ? 'active' : '' }} "
+                                    href="{{ route('heroproperties.index') }}">Hero Property</a>
+                                <a class="nav-link {{ Route:: is ('home/property') ? 'active' : '' }} " 
                                     href="about-section.html">About section</a>
-                                <a class="nav-link "
+                                <a class="nav-link {{ Route:: is ('home/property') ? 'active' : '' }} "
                                     href="social-link.html">Social Link</a>
                             </nav>
                         </div>
