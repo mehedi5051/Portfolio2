@@ -14,13 +14,13 @@
                             Home Page
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                         <div class="collapse {{ Route:: is ('home')  }} ? 'active': ''  " id="collapseLayouts"
+                         <div class="collapse {{ request()->is ('home*') ? 'show' : ''  }} " id="collapseLayouts"
                             aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link {{ Route:: is ('home/property') ? 'active' : '' }} "
+                                <a class="nav-link {{ request()->is ('home/heroproperty') ? 'active' : '' }} "
                                     href="{{ route('heroproperties.index') }}">Hero Property</a>
-                                <a class="nav-link {{ Route:: is ('home/property') ? 'active' : '' }} " 
-                                    href="about-section.html">About section</a>
+                                <a class="nav-link {{ request()->is ('home/about') ? 'active' : '' }} " 
+                                    href="{{route('about.index')  }}">About section</a>
                                 <a class="nav-link {{ Route:: is ('home/property') ? 'active' : '' }} "
                                     href="social-link.html">Social Link</a>
                             </nav>
@@ -56,7 +56,7 @@
                         </a>
 
                         <a class="nav-link "
-                            href="contact.html">
+                            href="{{ route('contact.index') }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                             Contact
                         </a>

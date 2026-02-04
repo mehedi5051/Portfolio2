@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Backend\AboutController;
+use App\Http\Controllers\Backend\ContactController;
 use App\Models\HeroProperty;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
@@ -32,8 +34,15 @@ Route::middleware('auth')->group(function () {
 
 
     // Hero Property Route
-    Route::get('home/property', [HeroPropertyController::class, 'index'])->name('heroproperties.index');
-    Route::post('home/property', [HeroPropertyController::class, 'store'])->name('heroproperties.store');
+    Route::get('home/heroproperty', [HeroPropertyController::class, 'index'])->name('heroproperties.index');
+    Route::post('home/heroproperty', [HeroPropertyController::class, 'store'])->name('heroproperties.store');
+
+    // about route
+    Route::get('home/about', [AboutController::class, 'index'])->name('about.index');
+    Route::post('home/about', [AboutController::class, 'store'])->name('about.store');
+
+    Route::resource('home/contact', ContactController::class)->only(['index',  'update', 'destroy', 'edit']);
+
 
 });
 

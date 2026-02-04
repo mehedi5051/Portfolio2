@@ -38,7 +38,7 @@ class HeroPropertyController extends Controller
          $request->validate([
             'key_line' => 'required|string|max:255',
             'title' => 'required|string|max:255',
-            'short_tittle' => 'required|string|max:255',
+            'short_title' => 'required|string|max:255',
            
          ]);
 
@@ -47,7 +47,7 @@ class HeroPropertyController extends Controller
 
          if($request->hasFile('img') ){
             $request->validate([
-                'img' => 'required|mimes:jpg.svg.png.jpeg.gif.svg.webp|max:2048 '
+                'img' => 'required|mimes:jpg.png.jpeg.gif.svg.webp|max:2048 '
             ]);
 
             if( $data && $data->img && file_exists(public_path($data->img)) ) {
@@ -56,8 +56,8 @@ class HeroPropertyController extends Controller
 
             $img = $request->file('img');
             $imgName= time(). '.' . $img->getClientOriginalExtension();
-            $img->move(public_path('images/heropropertis'. $imgName));
-            $filePath= 'images/heroproperties'. $imgName;
+            $img->move(public_path('images/heropropertis/'. $imgName));
+            $filePath= 'images/heroproperties/'. $imgName;
 
             HeroProperty::updateOrCreate(
                 ['id'=> $data->id ?? null ],
